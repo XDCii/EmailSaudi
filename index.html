@@ -4,13 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>دليل إيميلات التوظيف — السعودية</title>
+<meta name="description" content="2042 إيميل جهة ومنشأة سعودية مقسّمة على 18 قطاع — ضغطة واحدة تفتح رسالة جاهزة، أو أرسل لقطاع كامل بالـ BCC. بدون تسجيل.">
+<meta name="theme-color" content="#0B6E4F">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="إيميلات التوظيف">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:title" content="دليل إيميلات التوظيف — السعودية">
+<meta property="og:description" content="2042 إيميل جهة ومنشأة سعودية مقسّمة على 18 قطاع — ضغطة واحدة تفتح رسالة جاهزة، أو أرسل لقطاع كامل بالـ BCC. بدون تسجيل.">
+<meta property="og:url" content="https://xdcii.github.io/EmailSaudi/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="دليل إيميلات التوظيف — السعودية">
+<meta name="twitter:description" content="2042 إيميل جهة ومنشأة سعودية مقسّمة على 18 قطاع — ضغطة واحدة تفتح رسالة جاهزة، أو أرسل لقطاع كامل بالـ BCC. بدون تسجيل.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B6E4F'/%3E%3Cpath d='M14 22h36v20H14z' fill='none' stroke='white' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M14 22l18 13 18-13' fill='none' stroke='white' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B6E4F'/%3E%3Cpath d='M14 22h36v20H14z' fill='none' stroke='white' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M14 22l18 13 18-13' fill='none' stroke='white' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
 :root{--bg:#E9EDEE;--surface:#fff;--ink:#0F1F1B;--muted:#5E6E6A;--line:#D3DAD9;--accent:#0B6E4F;--done:#8A6D1F;--radius:10px}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6;-webkit-text-size-adjust:100%;
   font-family:"IBM Plex Sans Arabic","Noto Naskh Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
-.wrap{max-width:660px;margin:0 auto;padding:0 12px 96px}
+.wrap{max-width:660px;margin:0 auto;padding:0 12px 40px}
+body.hasSel .wrap{padding-bottom:104px}
 header.top{padding:14px 0 10px;border-bottom:1px solid var(--line)}
 h1{font-size:19px;font-weight:700;margin:0 0 2px}
 .sub{font-size:12.5px;color:var(--muted);margin:0 0 10px}
@@ -18,6 +34,8 @@ h1{font-size:19px;font-weight:700;margin:0 0 2px}
 .js .jsonly{display:block}
 .js .bar.jsonly{display:flex}
 .searchbar{position:relative}
+header.top{position:sticky;top:0;z-index:22;background:var(--bg)}
+header.top.tall{position:static}
 .searchbar input{width:100%;padding:13px 40px 13px 14px;font-size:16px;font-family:inherit;
   border:1.5px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink)}
 .searchbar input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
@@ -57,14 +75,14 @@ li[hidden]{display:none}
 li.done .name{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
 li.done .mail,li.done .det{opacity:.5}
 li.sel{background:#F1F8F5}
-.pick{display:none;flex:0 0 auto;width:40px;align-self:stretch;border:0;background:none;cursor:pointer;
+.pick{display:none;flex:0 0 auto;width:38px;align-self:stretch;border:0;background:none;cursor:pointer;
   color:var(--muted);font-size:17px;align-items:center;justify-content:center}
-.selmode .pick{display:flex}
+.js .pick{display:flex}
 li.sel .pick{color:var(--accent)}
-.tick{display:none;flex:0 0 auto;width:40px;align-self:stretch;border:0;background:none;cursor:pointer;
+.tick{display:none;flex:0 0 auto;width:38px;align-self:stretch;border:0;background:none;cursor:pointer;
   color:var(--line);font-size:16px;align-items:center;justify-content:center}
 .js .tick{display:flex}
-.js .selmode .tick{display:none}
+.js li.sel .pick{color:var(--accent)}
 li.done .tick{color:var(--done)}
 .go{flex:1 1 auto;min-width:0;display:block;padding:11px 13px;text-decoration:none;color:inherit}
 .js .go{padding-inline-start:2px}
@@ -83,21 +101,42 @@ li.done .tick{color:var(--done)}
 .linky{font:inherit;font-size:12.5px;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
 .linky.sendsec{font-weight:700;text-decoration:none;border:1px solid var(--accent);border-radius:7px;padding:4px 10px}
 a.go:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.toTop{position:fixed;inset-inline-end:14px;bottom:26px;z-index:25;width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--line);background:var(--surface);color:var(--accent);font-size:17px;cursor:pointer;
+  box-shadow:0 3px 12px rgba(15,31,27,.13);display:none}
+.toTop.show{display:block}
+body.hasSel .toTop{bottom:92px}
 #empty{padding:26px 12px;text-align:center;color:var(--muted);font-size:14px}
 footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-height:1.9}
-.toast{position:fixed;inset-inline:0;bottom:86px;margin:0 auto;width:max-content;max-width:88%;
+.toast{position:fixed;inset-inline:0;bottom:26px;margin:0 auto;width:max-content;max-width:88%;
   background:var(--ink);color:#fff;padding:9px 16px;border-radius:999px;font-size:13px;
   opacity:0;transform:translateY(8px);transition:opacity .18s,transform .18s;pointer-events:none;z-index:40}
 .toast.show{opacity:1;transform:translateY(0)}
+body.hasSel .toast{bottom:92px}
 .selbar{position:fixed;inset-inline:0;bottom:0;z-index:30;background:var(--surface);
   border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));
   display:flex;gap:8px;align-items:center;flex-wrap:wrap;box-shadow:0 -6px 18px rgba(15,31,27,.07)}
+.selbar[hidden]{display:none}
 .selbar .n{font-size:13px;color:var(--muted)}
 .selbar .n b{color:var(--accent);font-weight:700;font-size:15px}
 .btn{font:inherit;font-size:13px;padding:8px 12px;border-radius:8px;border:1.5px solid var(--line);
   background:var(--surface);color:var(--ink);cursor:pointer}
 .btn.main{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;margin-inline-start:auto}
 .btn:disabled{opacity:.45;cursor:default}
+.pbar{height:5px;border-radius:999px;background:var(--line);overflow:hidden;margin:9px 0 0}
+.pbar i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+.hint.cv{background:var(--bg);border-inline-start:3px solid var(--accent);padding:8px 11px;border-radius:7px;margin-top:10px}
+.mini{font:inherit;font-size:12px;padding:7px 10px;border-radius:7px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);cursor:pointer}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0E1513;--surface:#151E1B;--ink:#E7EDEA;--muted:#94A5A0;--line:#26332F;--accent:#4FC08D;--done:#C9A33B}
+  .panel input,.panel textarea,.panel select{background:#0E1513;color:var(--ink)}
+  li.sel{background:#172A22}
+  .btn.main,.chip[aria-pressed="true"]{color:#06110D}
+  .toast{background:#E7EDEA;color:#0E1513}
+  .toTop{box-shadow:0 3px 12px rgba(0,0,0,.45)}
+  .selbar{box-shadow:0 -6px 18px rgba(0,0,0,.45)}
+}
 @media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
 </head>
@@ -114,10 +153,12 @@ footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-
     <button class="chip" id="fHR" aria-pressed="false">بريد توظيف فقط</button>
     <button class="chip" id="fPrio" aria-pressed="false">إعلانات حديثة</button>
     <button class="chip" id="fDone" aria-pressed="false">إخفاء المُرسل</button>
-    <button class="chip" id="selMode" aria-pressed="false">إرسال جماعي</button>
+    <button class="chip" id="selMode" aria-pressed="false">تحديد الكل</button>
+    <button class="chip" id="expand" aria-pressed="false">فتح الأقسام</button>
     <button class="chip" id="tpl" aria-pressed="false">الإعدادات</button>
-    <span class="progress"><b id="doneN">0</b> مُرسل</span>
+    <span class="progress"><b id="doneN">0</b> مُرسل من <span id="totalN">0</span></span>
   </div>
+  <div class="pbar jsonly" aria-hidden="true"><i id="pbar"></i></div>
   <div class="panel jsonly" id="tplPanel" hidden>
     <label for="mode">طريقة الفتح</label>
     <select id="mode">
@@ -142,6 +183,14 @@ footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-
       <div><label for="batch">عدد المستلمين في كل رسالة</label>
         <input id="batch" type="number" min="5" max="200" step="5" value="40"></div>
     </div>
+    <hr class="sep">
+    <label>نسخة احتياطية من تقدمك</label>
+    <div class="two">
+      <div><button type="button" class="mini" id="expData" style="width:100%">تصدير ملف</button></div>
+      <div><button type="button" class="mini" id="impData" style="width:100%">استيراد ملف</button></div>
+    </div>
+    <input type="file" id="impFile" accept="application/json,.json" hidden>
+    <p class="hint cv">تذكير: الرسالة تُفتح جاهزة بس بدون مرفق — أرفق سيرتك الذاتية قبل ما ترسل.</p>
     <p class="hint">لو اخترت English أو "عربي + English"، عبّي الحقول بالإنجليزي — النص ينبني من نفس ما تكتبه.
     وكلمة <code>{الجهة}</code> داخل النص تنبدل تلقائياً باسم الشركة عند الإرسال الفردي.
     جيميل المجاني يسمح بـ 500 مستلم في اليوم، وكل عنوان في BCC يُحسب مستلماً مستقلاً.</p>
@@ -150,7 +199,7 @@ footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-
 
 <main id="list">
 <details class="sec">
-<summary><span class="arw" aria-hidden="true">◀</span><span class="stitle">الشركات المتعاقدة مع أرامكو</span><span class="count">69</span></summary>
+<summary><span class="arw" aria-hidden="true">◀</span><span class="stitle">الشركات المتعاقدة مع أرامكو</span><span class="count">70</span></summary>
 <ul>
 <li data-e="Jobs@jalint.com.sa" data-h="1" data-p="0" data-k="jal jobs@jalint.com.sa الشركات المتعاقدة مع أرامكو أرامكو"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=Jobs%40jalint.com.sa" target="_blank" rel="noopener"><span class="name">JAL</span><span class="mail">Jobs@jalint.com.sa</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="Recruiter1@ja-hr.com" data-h="1" data-p="0" data-k="jal recruiter1@ja-hr.com الشركات المتعاقدة مع أرامكو أرامكو"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=Recruiter1%40ja-hr.com" target="_blank" rel="noopener"><span class="name">JAL</span><span class="mail">Recruiter1@ja-hr.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
@@ -221,8 +270,9 @@ footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-
 <li data-e="Raghad.alshehri@yc.com.sa" data-h="1" data-p="0" data-k="alyamama raghad.alshehri@yc.com.sa الشركات المتعاقدة مع أرامكو أرامكو"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=Raghad.alshehri%40yc.com.sa" target="_blank" rel="noopener"><span class="name">ALYAMAMA</span><span class="mail">Raghad.alshehri@yc.com.sa</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="mohammed.alowayshiz@yc.com.sa" data-h="1" data-p="0" data-k="alyamama mohammed.alowayshiz@yc.com.sa الشركات المتعاقدة مع أرامكو أرامكو"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=mohammed.alowayshiz%40yc.com.sa" target="_blank" rel="noopener"><span class="name">ALYAMAMA</span><span class="mail">mohammed.alowayshiz@yc.com.sa</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="hadeel.mubark@yc.com.sa" data-h="1" data-p="0" data-k="alyamama hadeel.mubark@yc.com.sa الشركات المتعاقدة مع أرامكو أرامكو"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hadeel.mubark%40yc.com.sa" target="_blank" rel="noopener"><span class="name">ALYAMAMA</span><span class="mail">hadeel.mubark@yc.com.sa</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
+<li data-e="marketing@alfalak.com" data-h="0" data-p="0" data-k="alfalak marketing@alfalak.com الشركات المتعاقدة مع أرامكو أرامكو"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=marketing%40alfalak.com" target="_blank" rel="noopener"><span class="name">ALFALAK</span><span class="mail">marketing@alfalak.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 </ul>
-<div class="secfoot"><button type="button" class="linky copyall">نسخ إيميلات القسم (69)</button><button type="button" class="linky pickall">تحديد القسم</button><span class="shown"></span></div>
+<div class="secfoot"><button type="button" class="linky copyall">نسخ إيميلات القسم (70)</button><button type="button" class="linky pickall">تحديد القسم</button><span class="shown"></span></div>
 </details>
 <details class="sec">
 <summary><span class="arw" aria-hidden="true">◀</span><span class="stitle">شركات التأمين</span><span class="count">77</span></summary>
@@ -995,7 +1045,7 @@ footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-
 <div class="secfoot"><button type="button" class="linky copyall">نسخ إيميلات القسم (52)</button><button type="button" class="linky pickall">تحديد القسم</button><span class="shown"></span></div>
 </details>
 <details class="sec">
-<summary><span class="arw" aria-hidden="true">◀</span><span class="stitle">التقنية والاتصالات والتعليم</span><span class="count">84</span></summary>
+<summary><span class="arw" aria-hidden="true">◀</span><span class="stitle">التقنية والاتصالات والتعليم</span><span class="count">83</span></summary>
 <ul>
 <li data-e="info@aramco.com" data-h="0" data-p="0" data-k="أرامكو info@aramco.com التقنية والاتصالات والتعليم  "><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40aramco.com" target="_blank" rel="noopener"><span class="name">أرامكو</span><span class="mail">info@aramco.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="saempsa_webmaster@aramco.com" data-h="0" data-p="0" data-k="أرامكو — عنوان بديل saempsa_webmaster@aramco.com التقنية والاتصالات والتعليم  "><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=saempsa_webmaster%40aramco.com" target="_blank" rel="noopener"><span class="name">أرامكو — عنوان بديل</span><span class="mail">saempsa_webmaster@aramco.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
@@ -1059,7 +1109,6 @@ footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-
 <li data-e="info@saudi-skills.com" data-h="0" data-p="0" data-k="saudi skills institute info@saudi-skills.com التقنية والاتصالات والتعليم  etablissements prive de formation"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40saudi-skills.com" target="_blank" rel="noopener"><span class="name">SAUDI SKILLS INSTITUTE</span><span class="mail">info@saudi-skills.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="info@watanfirst.com" data-h="0" data-p="0" data-k="watan first institute info@watanfirst.com التقنية والاتصالات والتعليم  etablissements prive de formation"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40watanfirst.com" target="_blank" rel="noopener"><span class="name">WATAN FIRST INSTITUTE</span><span class="mail">info@watanfirst.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="info@yatooq.com" data-h="0" data-p="0" data-k="يتوق info@yatooq.com التقنية والاتصالات والتعليم  transformation de the et du cafe"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40yatooq.com" target="_blank" rel="noopener"><span class="name">يتوق</span><span class="mail">info@yatooq.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
-<li data-e="marketing@alfalak.com" data-h="0" data-p="0" data-k="alfalak electronic equipment marketing@alfalak.com التقنية والاتصالات والتعليم  telecommunication"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=marketing%40alfalak.com" target="_blank" rel="noopener"><span class="name">Alfalak Electronic Equipment</span><span class="mail">marketing@alfalak.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="sales@atadadvertising.com" data-h="0" data-p="0" data-k="atad advertising agency sales@atadadvertising.com التقنية والاتصالات والتعليم  communication - publicite"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sales%40atadadvertising.com" target="_blank" rel="noopener"><span class="name">ATAD Advertising Agency</span><span class="mail">sales@atadadvertising.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="sales@jiadalqassim.com" data-h="0" data-p="0" data-k="مجموعة جياد القصيم المتحدة المحدودة sales@jiadalqassim.com التقنية والاتصالات والتعليم  transformation de the et du cafe"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sales%40jiadalqassim.com" target="_blank" rel="noopener"><span class="name">مجموعة جياد القصيم المتحدة المحدودة</span><span class="mail">sales@jiadalqassim.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="afaris@alfaisaliah.com" data-h="0" data-p="0" data-k="أنظمة الوسائل الحديثة جدة afaris@alfaisaliah.com التقنية والاتصالات والتعليم  telecommunication"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=afaris%40alfaisaliah.com" target="_blank" rel="noopener"><span class="name">أنظمة الوسائل الحديثة جدة</span><span class="mail">afaris@alfaisaliah.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
@@ -1082,7 +1131,7 @@ footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-
 <li data-e="abdullah.s.alshaabi@gmail.com" data-h="0" data-p="0" data-k="وكالة أنجل للحروف البارزة الطائف abdullah.s.alshaabi@gmail.com التقنية والاتصالات والتعليم  communication - publicite"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=abdullah.s.alshaabi%40gmail.com" target="_blank" rel="noopener"><span class="name">وكالة أنجل للحروف البارزة الطائف</span><span class="mail">abdullah.s.alshaabi@gmail.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 <li data-e="ahmad.sami77@hotmail.com" data-h="0" data-p="0" data-k="شركة كروة الاصلاح / فرع الحاسب الالي ahmad.sami77@hotmail.com التقنية والاتصالات والتعليم  matériels et fournitures bureautiques et informatiques"><button type="button" class="pick" aria-label="تحديد">&#9744;</button><button type="button" class="tick" aria-label="تعليم كمُرسل">&#10003;</button><a class="go" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ahmad.sami77%40hotmail.com" target="_blank" rel="noopener"><span class="name">شركة كروة الاصلاح / فرع الحاسب الالي</span><span class="mail">ahmad.sami77@hotmail.com</span></a><button type="button" class="copy" aria-label="نسخ">نسخ</button></li>
 </ul>
-<div class="secfoot"><button type="button" class="linky copyall">نسخ إيميلات القسم (84)</button><button type="button" class="linky pickall">تحديد القسم</button><span class="shown"></span></div>
+<div class="secfoot"><button type="button" class="linky copyall">نسخ إيميلات القسم (83)</button><button type="button" class="linky pickall">تحديد القسم</button><span class="shown"></span></div>
 </details>
 <details class="sec">
 <summary><span class="arw" aria-hidden="true">◀</span><span class="stitle">المقاولات والطاقة والصناعة</span><span class="count">337</span></summary>
@@ -2301,7 +2350,7 @@ footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-
 </details>
 </main>
 <div id="empty" hidden>ما فيه نتيجة مطابقة.</div>
-<footer>اضغط على الجهة يفتح رسالة جديدة لها وحدها، أو اضغط «رسالة BCC للقسم» أسفل أي قسم لإرسال دفعة واحدة.</footer>
+<footer>اضغط على الجهة يفتح رسالة جديدة لها وحدها، أو حدّد أي إيميلات تبغاها وأرسلهم دفعة واحدة بالـ BCC.<br>2042 جهة في 18 قطاع · آخر تحديث: سبتمبر 2026 · تقدمك محفوظ في متصفحك فقط</footer>
 </div>
 
 <div class="selbar" id="selbar" hidden>
@@ -2311,6 +2360,7 @@ footer{margin-top:26px;font-size:12px;color:var(--muted);text-align:center;line-
   <button type="button" class="btn" id="selClear">مسح</button>
   <button type="button" class="btn main" id="selSend">فتح رسالة BCC</button>
 </div>
+<button type="button" class="toTop" id="toTop" aria-label="العودة للأعلى">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -2320,27 +2370,96 @@ var KEY="jobmail.done.v1",TKEY="jobmail.tpl.v1";
 var mem={};
 var store={get:function(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return k in mem?mem[k]:f;}},
            set:function(k,v){mem[k]=v;try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
-var done={};(store.get(KEY,[])||[]).forEach(function(e){done[e]=1;});
+var done={};(store.get(KEY,[])||[]).forEach(function(e){done[String(e).toLowerCase()]=1;});
 var isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 var tpl=store.get(TKEY,null)||{su:"",bd:"",mode:isMobile?"app":"web",batch:40};
 var $=function(id){return document.getElementById(id);};
 var qEl=$("q"),suEl=$("su"),bdEl=$("bd"),modeEl=$("mode"),batchEl=$("batch"),doneN=$("doneN"),
     toastEl=$("toast"),empty=$("empty"),fHR=$("fHR"),fPrio=$("fPrio"),fDone=$("fDone"),
-    tplBtn=$("tpl"),tplPanel=$("tplPanel"),selModeBtn=$("selMode"),listEl=$("list"),
+    tplBtn=$("tpl"),tplPanel=$("tplPanel"),selModeBtn=$("selMode"),expandBtn=$("expand"),
+    listEl=$("list"),topBtn=$("toTop"),pbar=$("pbar"),totalN=$("totalN"),
+    expData=$("expData"),impData=$("impData"),impFile=$("impFile"),
     selbar=$("selbar"),selN=$("selN"),selAll=$("selAll"),selCopy=$("selCopy"),selClear=$("selClear"),selSend=$("selSend");
 var langEl=$("lang"),genBtn=$("gen");
 suEl.value=tpl.su||"";bdEl.value=tpl.bd||"";modeEl.value=tpl.mode||"web";batchEl.value=tpl.batch||40;
 langEl.value=tpl.lang||"ar";
+
 function on(el){return el.getAttribute("aria-pressed")==="true";}
+function press(el,v){el.setAttribute("aria-pressed",String(!!v));}
+
+/* توحيد الحروف العربية: الهمزات والتاء المربوطة والألف المقصورة والتشكيل */
+function norm(t){
+  return String(t||"").toLowerCase()
+    .replace(/[\u064B-\u0652\u0640\u0670]/g,"")
+    .replace(/[\u0623\u0625\u0622\u0671]/g,"\u0627")
+    .replace(/\u0649/g,"\u064A").replace(/\u0626/g,"\u064A")
+    .replace(/\u0624/g,"\u0648").replace(/\u0629/g,"\u0647")
+    .replace(/\s+/g," ");
+}
+function closest(el,sel){
+  while(el&&el!==document){if(el.matches?el.matches(sel):false)return el;el=el.parentNode;}
+  return null;
+}
+
+/* فهرس مبني مرة واحدة — أسرع بكثير من قراءة الـDOM في كل بحث */
 var items=[].slice.call(document.querySelectorAll("#list li"));
+var recs=items.map(function(li){
+  var r={li:li,e:li.getAttribute("data-e"),lk:li.getAttribute("data-e").toLowerCase(),
+         k:norm(li.getAttribute("data-k")),h:li.getAttribute("data-h")==="1",
+         p:li.getAttribute("data-p")==="1",vis:true,cls:""};
+  li._r=r;return r;
+});
 var secs=[].slice.call(document.querySelectorAll("details.sec"));
-var sel={},queue=[],qi=0,autoSel=false;
+var secRecs=secs.map(function(sec){
+  var r={sec:sec,list:[].slice.call(sec.querySelectorAll("li")).map(function(li){return li._r;}),
+         cnt:sec.querySelector(".count"),shown:sec.querySelector(".shown"),
+         copyall:sec.querySelector(".copyall"),vis:0};
+  r.vis=r.list.length;sec._r=r;return r;
+});
+var sel={},selN0=0,queue=[],qi=0;
+
+function cls(r){
+  var c="";
+  if(done[r.lk])c="done";
+  if(sel[r.e])c=c?c+" sel":"sel";
+  if(c!==r.cls){r.li.className=c;r.cls=c;}
+}
+function paintAll(){recs.forEach(cls);}
+function count(){
+  var n=Object.keys(done).length;
+  doneN.textContent=n;totalN.textContent=recs.length;
+  var pc=recs.length?n/recs.length*100:0;
+  pbar.style.width=(n&&pc<0.8?0.8:Math.round(pc*10)/10)+"%";
+}
+function batch(){var b=parseInt(batchEl.value,10);return(!b||b<5)?5:(b>200?200:b);}
+
+function selCount(){
+  var n=selN0;
+  selN.textContent=n;
+  selSend.disabled=selCopy.disabled=(n===0);
+  selbar.hidden=(n===0);
+  document.body.className=n?"hasSel":"";
+  selSend.textContent=n>batch()?"\u0641\u062a\u062d \u0623\u0648\u0644 \u062f\u0641\u0639\u0629 ("+batch()+")":"\u0641\u062a\u062d \u0631\u0633\u0627\u0644\u0629 BCC ("+n+")";
+  press(selModeBtn,n>0);
+}
+function pick(r,v){
+  var had=!!sel[r.e];
+  if(v&&!had){sel[r.e]=1;selN0++;}
+  else if(!v&&had){delete sel[r.e];selN0--;}
+  cls(r);
+}
+function clearSel(){sel={};selN0=0;queue=[];qi=0;paintAll();selCount();}
+
+function markDone(r,v){
+  if(v)done[r.lk]=1;else delete done[r.lk];
+  cls(r);store.set(KEY,Object.keys(done));count();
+  if(on(fDone))filter();
+}
 
 function fields(org){
   var su=suEl.value.replace(/^\s+|\s+$/g,""),bd=bdEl.value.replace(/^\s+|\s+$/g,"");
-  var fallback=langEl.value==="en"?"your organization":"شركتكم الموقرة";
-  var name=org||fallback;
-  su=su.replace(/\{الجهة\}/g,name);bd=bd.replace(/\{الجهة\}/g,name);
+  var name=org||(langEl.value==="en"?"your organization":"\u0634\u0631\u0643\u062a\u0643\u0645 \u0627\u0644\u0645\u0648\u0642\u0631\u0629");
+  su=su.replace(/\{\u0627\u0644\u062c\u0647\u0629\}/g,name);bd=bd.replace(/\{\u0627\u0644\u062c\u0647\u0629\}/g,name);
   return {su:su,bd:bd};
 }
 function composeURL(to,bcc,org){
@@ -2361,128 +2480,143 @@ function composeURL(to,bcc,org){
   return "mailto:"+encodeURIComponent(to||"")+qs;
 }
 function openURL(u){
-  if(modeEl.value==="web"){window.open(u,"_blank","noopener");}
+  if(modeEl.value==="web"){var w=window.open(u,"_blank","noopener");
+    if(!w)toast("\u0627\u0644\u0645\u062a\u0635\u0641\u062d \u0645\u0646\u0639 \u0641\u062a\u062d \u0627\u0644\u0646\u0627\u0641\u0630\u0629 \u2014 \u0627\u0633\u0645\u062d \u0628\u0627\u0644\u0646\u0648\u0627\u0641\u0630 \u0627\u0644\u0645\u0646\u0628\u062b\u0642\u0629 \u0644\u0647\u0630\u0627 \u0627\u0644\u0645\u0648\u0642\u0639");}
   else{window.location.href=u;}
 }
 function toast(m){toastEl.textContent=m;toastEl.className="toast show";
-  clearTimeout(toast._t);toast._t=setTimeout(function(){toastEl.className="toast";},2200);}
+  clearTimeout(toast._t);toast._t=setTimeout(function(){toastEl.className="toast";},2400);}
 function copy(t,ok){
   if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,function(){fb(t,ok);});}
   else fb(t,ok);}
 function fb(t,ok){var a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";
-  document.body.appendChild(a);a.select();try{document.execCommand("copy");ok();}catch(e){toast("ما قدر ينسخ");}a.parentNode.removeChild(a);}
-function cls(li){var c=[];if(done[li.getAttribute("data-e").toLowerCase()])c.push("done");
-  if(sel[li.getAttribute("data-e")])c.push("sel");li.className=c.join(" ");}
-function markDone(li,v){
-  var e=li.getAttribute("data-e").toLowerCase();
-  if(v)done[e]=1;else delete done[e];
-  cls(li);store.set(KEY,Object.keys(done));count();
-  if(on(fDone))filter();}
-function count(){doneN.textContent=Object.keys(done).length;}
-function selCount(){var n=Object.keys(sel).length;selN.textContent=n;selSend.disabled=n===0;selCopy.disabled=n===0;
-  selSend.textContent=n>batch()?"فتح أول دفعة ("+batch()+")":"فتح رسالة BCC";}
-function batch(){var b=parseInt(batchEl.value,10);return (!b||b<5)?5:(b>200?200:b);}
+  document.body.appendChild(a);a.select();try{document.execCommand("copy");ok();}catch(e){toast("\u0645\u0627 \u0642\u062f\u0631 \u064a\u0646\u0633\u062e");}a.parentNode.removeChild(a);}
 
-items.forEach(function(li){
-  var e=li.getAttribute("data-e");
-  cls(li);
-  li.querySelector(".tick").onclick=function(){markDone(li,li.className.indexOf("done")<0);};
-  li.querySelector(".pick").onclick=function(){if(sel[e])delete sel[e];else sel[e]=1;cls(li);selCount();};
-  var a=li.querySelector(".go");
-  a.onclick=function(ev){
-    if(listEl.className==="selmode"){ev.preventDefault();if(sel[e])delete sel[e];else sel[e]=1;cls(li);selCount();return;}
-    ev.preventDefault();
-    var nm=li.querySelector(".name")?li.querySelector(".name").textContent:"";
-    openURL(composeURL(e,"",nm));markDone(li,true);};
-  var cp=li.querySelector(".copy");
-  cp.onclick=function(){copy(e,function(){cp.textContent="تم";cp.className="copy ok";
-    setTimeout(function(){cp.textContent="نسخ";cp.className="copy";},1200);});};
+/* ---- تفويض الأحداث: مستمع واحد بدل آلاف المستمعات ---- */
+listEl.addEventListener("click",function(ev){
+  var t=ev.target,li=closest(t,"li"),sec=closest(t,"details.sec");
+  if(li&&li._r){
+    var r=li._r;
+    if(closest(t,".pick")){ev.preventDefault();pick(r,!sel[r.e]);selCount();return;}
+    if(closest(t,".tick")){ev.preventDefault();markDone(r,!done[r.lk]);return;}
+    var cp=closest(t,".copy");
+    if(cp){ev.preventDefault();copy(r.e,function(){cp.textContent="\u062a\u0645";cp.className="copy ok";
+      setTimeout(function(){cp.textContent="\u0646\u0633\u062e";cp.className="copy";},1200);});return;}
+    if(closest(t,"a.go")){
+      ev.preventDefault();
+      var nm=li.querySelector(".name");
+      openURL(composeURL(r.e,"",nm?nm.textContent:""));markDone(r,true);return;}
+    return;
+  }
+  if(!sec||!sec._r)return;
+  var sr=sec._r,vis=sr.list.filter(function(x){return x.vis;});
+  if(closest(t,".sendsec")){
+    if(!vis.length){toast("\u0645\u0627 \u0641\u064a\u0647 \u0625\u064a\u0645\u064a\u0644\u0627\u062a \u0638\u0627\u0647\u0631\u0629 \u0641\u064a \u0647\u0630\u0627 \u0627\u0644\u0642\u0633\u0645");return;}
+    sel={};selN0=0;vis.forEach(function(x){pick(x,true);});
+    queue=[];qi=0;selCount();sendBatch();return;}
+  if(closest(t,".copyall")){
+    copy(vis.map(function(x){return x.e;}).join(", "),function(){toast("\u0646\u064f\u0633\u062e "+vis.length+" \u0625\u064a\u0645\u064a\u0644");});return;}
+  if(closest(t,".pickall")){
+    var allOn=vis.length&&vis.every(function(x){return sel[x.e];});
+    vis.forEach(function(x){pick(x,!allOn);});selCount();
+    toast(allOn?"\u0623\u064f\u0644\u063a\u064a \u062a\u062d\u062f\u064a\u062f \u0627\u0644\u0642\u0633\u0645":"\u062a\u0645 \u062a\u062d\u062f\u064a\u062f "+vis.length);return;}
 });
-secs.forEach(function(sec){
-  var vis=function(){return [].slice.call(sec.querySelectorAll("li")).filter(function(li){return !li.hidden;});};
-  var foot=sec.querySelector(".secfoot");
-  var sb=document.createElement("button");
-  sb.type="button";sb.className="linky sendsec";sb.textContent="رسالة BCC للقسم";
-  foot.insertBefore(sb,foot.firstChild);
-  sb.onclick=function(){
-    var a=vis().map(function(li){return li.getAttribute("data-e");});
-    if(!a.length){toast("ما فيه إيميلات ظاهرة في هذا القسم");return;}
-    sel={};a.forEach(function(e){sel[e]=1;});
-    items.forEach(cls);queue=[];qi=0;
-    if(listEl.className!=="selmode"){autoSel=true;selModeBtn.setAttribute("aria-pressed","true");listEl.className="selmode";selbar.hidden=false;}
-    selCount();
-    selSend.onclick();
-  };
-  sec.querySelector(".copyall").onclick=function(){
-    var a=vis().map(function(li){return li.getAttribute("data-e");});
-    copy(a.join(", "),function(){toast("نُسخ "+a.length+" إيميل");});};
-  sec.querySelector(".pickall").onclick=function(){
-    vis().forEach(function(li){sel[li.getAttribute("data-e")]=1;cls(li);});
-    if(listEl.className!=="selmode"){selModeBtn.setAttribute("aria-pressed","true");listEl.className="selmode";selbar.hidden=false;}
-    selCount();};
+
+/* زر «رسالة BCC للقسم» يُضاف لكل قسم */
+secRecs.forEach(function(sr){
+  var foot=sr.sec.querySelector(".secfoot");
+  var b=document.createElement("button");
+  b.type="button";b.className="linky sendsec";b.textContent="\u0631\u0633\u0627\u0644\u0629 BCC \u0644\u0644\u0642\u0633\u0645";
+  foot.insertBefore(b,foot.firstChild);
 });
+
+/* ---- البحث والفلاتر ---- */
+var savedOpen=null;
 function filter(){
-  var q=qEl.value.replace(/^\s+|\s+$/g,"").toLowerCase();
+  var q=norm(qEl.value.replace(/^\s+|\s+$/g,""));
   var hr=on(fHR),pr=on(fPrio),hd=on(fDone),total=0;
-  secs.forEach(function(sec){
-    var n=0;
-    [].slice.call(sec.querySelectorAll("li")).forEach(function(li){
-      var ok=true;
-      if(hr&&li.getAttribute("data-h")!=="1")ok=false;
-      if(ok&&pr&&li.getAttribute("data-p")!=="1")ok=false;
-      if(ok&&hd&&done[li.getAttribute("data-e").toLowerCase()])ok=false;
-      if(ok&&q&&li.getAttribute("data-k").indexOf(q)<0)ok=false;
-      li.hidden=!ok;if(ok)n++;});
-    sec.hidden=n===0;
-    sec.querySelector(".count").textContent=n;
-    sec.querySelector(".shown").textContent=n+" ظاهر";
-    if(q&&n>0)sec.open=true;
-    total+=n;});
+  if(q&&savedOpen===null)savedOpen=secRecs.map(function(sr){return sr.sec.open;});
+  for(var i=0;i<secRecs.length;i++){
+    var sr=secRecs[i],n=0,l=sr.list;
+    for(var j=0;j<l.length;j++){
+      var r=l[j],ok=true;
+      if(hr&&!r.h)ok=false;
+      else if(pr&&!r.p)ok=false;
+      else if(hd&&done[r.lk])ok=false;
+      else if(q&&r.k.indexOf(q)<0)ok=false;
+      if(r.vis!==ok){r.li.hidden=!ok;r.vis=ok;}
+      if(ok)n++;
+    }
+    sr.sec.hidden=(n===0);
+    sr.cnt.textContent=n;
+    sr.shown.textContent=n+" \u0638\u0627\u0647\u0631";
+    sr.copyall.textContent="\u0646\u0633\u062e \u0625\u064a\u0645\u064a\u0644\u0627\u062a \u0627\u0644\u0642\u0633\u0645 ("+n+")";
+    if(q&&n>0)sr.sec.open=true;
+    total+=n;
+  }
+  if(!q&&savedOpen){for(var k=0;k<secRecs.length;k++)secRecs[k].sec.open=savedOpen[k];savedOpen=null;}
   empty.hidden=total>0;
 }
 var t;
-qEl.oninput=function(){clearTimeout(t);t=setTimeout(filter,160);};
-[fHR,fPrio,fDone].forEach(function(b){b.onclick=function(){b.setAttribute("aria-pressed",String(!on(b)));filter();};});
-tplBtn.onclick=function(){var o=on(tplBtn);tplBtn.setAttribute("aria-pressed",String(!o));tplPanel.hidden=o;};
+qEl.oninput=function(){clearTimeout(t);t=setTimeout(filter,150);};
+[fHR,fPrio,fDone].forEach(function(b){b.onclick=function(){press(b,!on(b));filter();};});
+tplBtn.onclick=function(){var o=on(tplBtn);press(tplBtn,!o);tplPanel.hidden=o;
+  document.querySelector("header.top").className=o?"top":"top tall";};
+expandBtn.onclick=function(){
+  var o=on(expandBtn);press(expandBtn,!o);
+  expandBtn.textContent=o?"\u0641\u062a\u062d \u0627\u0644\u0623\u0642\u0633\u0627\u0645":"\u0625\u063a\u0644\u0627\u0642 \u0627\u0644\u0623\u0642\u0633\u0627\u0645";
+  secRecs.forEach(function(sr){if(!sr.sec.hidden)sr.sec.open=!o;});
+  savedOpen=null;};
+
+/* ---- شريط التحديد ---- */
 selModeBtn.onclick=function(){
-  var o=on(selModeBtn);selModeBtn.setAttribute("aria-pressed",String(!o));
-  listEl.className=o?"":"selmode";selbar.hidden=o;
-  if(o){sel={};items.forEach(cls);}
-  selCount();};
-selAll.onclick=function(){
-  var n=0;items.forEach(function(li){if(!li.hidden&&!li.parentNode.parentNode.hidden){sel[li.getAttribute("data-e")]=1;cls(li);n++;}});
-  selCount();toast("تم تحديد "+n);};
-selClear.onclick=function(){sel={};items.forEach(cls);selCount();};
-selCopy.onclick=function(){var a=Object.keys(sel);copy(a.join(", "),function(){toast("نُسخ "+a.length+" إيميل — الصقهم في خانة BCC");});};
-selSend.onclick=function(){
+  if(selN0){clearSel();toast("\u0623\u064f\u0644\u063a\u064a \u0627\u0644\u062a\u062d\u062f\u064a\u062f");return;}
+  var n=0;recs.forEach(function(r){if(r.vis&&!r.li.parentNode.parentNode.hidden){pick(r,true);n++;}});
+  selCount();toast(n?"\u062a\u0645 \u062a\u062d\u062f\u064a\u062f "+n:"\u0645\u0627 \u0641\u064a\u0647 \u0634\u064a \u0638\u0627\u0647\u0631");};
+selAll.onclick=selModeBtn.onclick;
+selClear.onclick=function(){clearSel();};
+selCopy.onclick=function(){var a=Object.keys(sel);
+  copy(a.join(", "),function(){toast("\u0646\u064f\u0633\u062e "+a.length+" \u0625\u064a\u0645\u064a\u0644 \u2014 \u0627\u0644\u0635\u0642\u0647\u0645 \u0641\u064a \u062e\u0627\u0646\u0629 BCC");});};
+
+function sendBatch(){
   var all=Object.keys(sel);if(!all.length)return;
   if(!queue.length||qi>=queue.length){
     queue=[];var b=batch();
     for(var i=0;i<all.length;i+=b)queue.push(all.slice(i,i+b));
     qi=0;}
   var chunk=queue[qi],url=composeURL("",chunk.join(","));
-  if(url.length>7000&&chunk.length>10){toast("العدد كبير على الرابط — صغّر حجم الدفعة");return;}
+  if(url.length>7000&&chunk.length>10){
+    toast("\u0627\u0644\u0639\u062f\u062f \u0643\u0628\u064a\u0631 \u0639\u0644\u0649 \u0627\u0644\u0631\u0627\u0628\u0637 \u2014 \u0635\u063a\u0651\u0631 \u062d\u062c\u0645 \u0627\u0644\u062f\u0641\u0639\u0629 \u0645\u0646 \u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a");return;}
   openURL(url);
   chunk.forEach(function(e){done[e.toLowerCase()]=1;});
-  store.set(KEY,Object.keys(done));items.forEach(cls);count();
+  store.set(KEY,Object.keys(done));paintAll();count();
   qi++;
-  if(qi<queue.length){selSend.textContent="الدفعة التالية ("+(qi+1)+" من "+queue.length+")";
-    toast("أُرسلت دفعة "+qi+" — اضغط للدفعة اللي بعدها");}
-  else{queue=[];qi=0;sel={};items.forEach(cls);selCount();
-    if(autoSel){autoSel=false;selModeBtn.setAttribute("aria-pressed","false");listEl.className="";selbar.hidden=true;}
-    toast("خلصت كل الدفعات");}
-};
+  if(qi<queue.length){
+    selSend.textContent="\u0627\u0644\u062f\u0641\u0639\u0629 \u0627\u0644\u062a\u0627\u0644\u064a\u0629 ("+(qi+1)+" \u0645\u0646 "+queue.length+")";
+    toast("\u0623\u064f\u0631\u0633\u0644\u062a \u062f\u0641\u0639\u0629 "+qi+" \u0645\u0646 "+queue.length+" \u2014 \u0627\u0636\u063a\u0637 \u0644\u0644\u062f\u0641\u0639\u0629 \u0627\u0644\u0644\u064a \u0628\u0639\u062f\u0647\u0627");}
+  else{clearSel();toast("\u062e\u0644\u0635\u062a \u0643\u0644 \u0627\u0644\u062f\u0641\u0639\u0627\u062a");}
+}
+selSend.onclick=sendBatch;
+
+/* ---- العودة للأعلى ---- */
+var st;
+window.addEventListener("scroll",function(){
+  clearTimeout(st);st=setTimeout(function(){
+    topBtn.className=(window.pageYOffset>700)?"toTop show":"toTop";},120);},{passive:true});
+topBtn.onclick=function(){window.scrollTo({top:0,behavior:"smooth"});qEl.focus();};
+
+/* ---- القوالب ---- */
 function tAR(){
-  return ["السلام عليكم ورحمة الله وبركاته،","",
-  "أتشرف بالتقدم لشغل وظيفة [المسمى الوظيفي] لدى {الجهة}، حاملاً [المؤهل]، ولديّ خبرة [عدد] سنوات في [المجال].","",
-  "تركّز خبرتي على [أبرز مهاراتك والأنظمة التي تجيدها]. ومن أبرز ما حققته في عملي: [إنجاز أو رقم يوصف شغلك].","",
-  "أرفق لكم سيرتي الذاتية للاطلاع على تفاصيل خبرتي، ويسعدني مناقشتها معكم في أي وقت يناسبكم، علماً بأنني مقيم في [المدينة] ولديّ الاستعداد للمباشرة فور اعتمادكم.","",
-  "شاكراً لكم حسن اهتمامكم، وتقبلوا وافر التقدير والاحترام،","",
-  "[اسمك]","[المسمى الوظيفي]","الجوال: [رقمك]","البريد: [بريدك]"].join("\n");
+  return ["\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \u0648\u0628\u0631\u0643\u0627\u062a\u0647\u060c","",
+  "\u0623\u062a\u0634\u0631\u0641 \u0628\u0627\u0644\u062a\u0642\u062f\u0645 \u0644\u0634\u063a\u0644 \u0648\u0638\u064a\u0641\u0629 [\u0627\u0644\u0645\u0633\u0645\u0649 \u0627\u0644\u0648\u0638\u064a\u0641\u064a] \u0644\u062f\u0649 {\u0627\u0644\u062c\u0647\u0629}\u060c \u062d\u0627\u0645\u0644\u0627\u064b [\u0627\u0644\u0645\u0624\u0647\u0644]\u060c \u0648\u0644\u062f\u064a\u0651 \u062e\u0628\u0631\u0629 [\u0639\u062f\u062f] \u0633\u0646\u0648\u0627\u062a \u0641\u064a [\u0627\u0644\u0645\u062c\u0627\u0644].","",
+  "\u062a\u0631\u0643\u0651\u0632 \u062e\u0628\u0631\u062a\u064a \u0639\u0644\u0649 [\u0623\u0628\u0631\u0632 \u0645\u0647\u0627\u0631\u0627\u062a\u0643 \u0648\u0627\u0644\u0623\u0646\u0638\u0645\u0629 \u0627\u0644\u062a\u064a \u062a\u062c\u064a\u062f\u0647\u0627]. \u0648\u0645\u0646 \u0623\u0628\u0631\u0632 \u0645\u0627 \u062d\u0642\u0642\u062a\u0647 \u0641\u064a \u0639\u0645\u0644\u064a: [\u0625\u0646\u062c\u0627\u0632 \u0623\u0648 \u0631\u0642\u0645 \u064a\u0648\u0635\u0641 \u0634\u063a\u0644\u0643].","",
+  "\u0623\u0631\u0641\u0642 \u0644\u0643\u0645 \u0633\u064a\u0631\u062a\u064a \u0627\u0644\u0630\u0627\u062a\u064a\u0629 \u0644\u0644\u0627\u0637\u0644\u0627\u0639 \u0639\u0644\u0649 \u062a\u0641\u0627\u0635\u064a\u0644 \u062e\u0628\u0631\u062a\u064a\u060c \u0648\u064a\u0633\u0639\u062f\u0646\u064a \u0645\u0646\u0627\u0642\u0634\u062a\u0647\u0627 \u0645\u0639\u0643\u0645 \u0641\u064a \u0623\u064a \u0648\u0642\u062a \u064a\u0646\u0627\u0633\u0628\u0643\u0645\u060c \u0639\u0644\u0645\u0627\u064b \u0628\u0623\u0646\u0646\u064a \u0645\u0642\u064a\u0645 \u0641\u064a [\u0627\u0644\u0645\u062f\u064a\u0646\u0629] \u0648\u0644\u062f\u064a\u0651 \u0627\u0644\u0627\u0633\u062a\u0639\u062f\u0627\u062f \u0644\u0644\u0645\u0628\u0627\u0634\u0631\u0629 \u0641\u0648\u0631 \u0627\u0639\u062a\u0645\u0627\u062f\u0643\u0645.","",
+  "\u0634\u0627\u0643\u0631\u0627\u064b \u0644\u0643\u0645 \u062d\u0633\u0646 \u0627\u0647\u062a\u0645\u0627\u0645\u0643\u0645\u060c \u0648\u062a\u0642\u0628\u0644\u0648\u0627 \u0648\u0627\u0641\u0631 \u0627\u0644\u062a\u0642\u062f\u064a\u0631 \u0648\u0627\u0644\u0627\u062d\u062a\u0631\u0627\u0645\u060c","",
+  "[\u0627\u0633\u0645\u0643]","[\u0627\u0644\u0645\u0633\u0645\u0649 \u0627\u0644\u0648\u0638\u064a\u0641\u064a]","\u0627\u0644\u062c\u0648\u0627\u0644: [\u0631\u0642\u0645\u0643]","\u0627\u0644\u0628\u0631\u064a\u062f: [\u0628\u0631\u064a\u062f\u0643]"].join("\n");
 }
 function tEN(){
   return ["Dear Hiring Team,","",
-  "I am writing to express my interest in the position of [job title] at {الجهة}. I hold a [degree] and bring [number] years of experience in [field].","",
+  "I am writing to express my interest in the position of [job title] at {\u0627\u0644\u062c\u0647\u0629}. I hold a [degree] and bring [number] years of experience in [field].","",
   "My work has centred on [your key skills and systems]. A result I am proud of: [an achievement or a number].","",
   "My CV is attached with the full details of my background, and I would be glad to discuss it at a time that suits you. I am based in [city] and available to start immediately.","",
   "Thank you for your time and consideration.","",
@@ -2490,17 +2624,58 @@ function tEN(){
 }
 function generate(){
   var l=langEl.value;
-  suEl.value = l==="en" ? "Application: [job title]" : "طلب وظيفة: [المسمى الوظيفي]";
-  bdEl.value = l==="ar"?tAR() : l==="en"?tEN() : tAR()+"\n\n———————————————\n\n"+tEN();
-  save();toast("عبّي اللي بين الأقواس مرة واحدة ويتحفظ");
+  suEl.value=l==="en"?"Application: [job title]":"\u0637\u0644\u0628 \u0648\u0638\u064a\u0641\u0629: [\u0627\u0644\u0645\u0633\u0645\u0649 \u0627\u0644\u0648\u0638\u064a\u0641\u064a]";
+  bdEl.value=l==="ar"?tAR():l==="en"?tEN():tAR()+"\n\n\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\n\n"+tEN();
+  save();toast("\u0639\u0628\u0651\u064a \u0627\u0644\u0644\u064a \u0628\u064a\u0646 \u0627\u0644\u0623\u0642\u0648\u0627\u0633 \u0645\u0631\u0629 \u0648\u0627\u062d\u062f\u0629 \u0648\u064a\u062a\u062d\u0641\u0638");
 }
 genBtn.onclick=generate;
 function save(){store.set(TKEY,{su:suEl.value,bd:bdEl.value,mode:modeEl.value,batch:batch(),lang:langEl.value});}
-suEl.oninput=save;bdEl.oninput=save;batchEl.onchange=function(){save();selCount();};
+suEl.oninput=save;bdEl.oninput=save;
+batchEl.onchange=function(){save();queue=[];qi=0;selCount();};
 langEl.onchange=save;
 modeEl.onchange=function(){save();
-  toast(modeEl.value==="web"?"يفتح جيميل في المتصفح":(modeEl.value==="gapp"?"يفتح تطبيق جيميل":"يفتح تطبيق البريد الافتراضي"));};
-count();selCount();
+  toast(modeEl.value==="web"?"\u064a\u0641\u062a\u062d \u062c\u064a\u0645\u064a\u0644 \u0641\u064a \u0627\u0644\u0645\u062a\u0635\u0641\u062d":(modeEl.value==="gapp"?"\u064a\u0641\u062a\u062d \u062a\u0637\u0628\u064a\u0642 \u062c\u064a\u0645\u064a\u0644":"\u064a\u0641\u062a\u062d \u062a\u0637\u0628\u064a\u0642 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a"));};
+
+/* ---- نسخة احتياطية من التقدم ---- */
+expData.onclick=function(){
+  var data={v:1,date:new Date().toISOString().slice(0,10),done:Object.keys(done),tpl:store.get(TKEY,null)};
+  var blob=new Blob([JSON.stringify(data)],{type:"application/json"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="jobmail-backup-"+data.date+".json";
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.parentNode.removeChild(a);},300);
+  toast("نُزّلت النسخة الاحتياطية");};
+impData.onclick=function(){impFile.click();};
+impFile.onchange=function(){
+  var f=impFile.files&&impFile.files[0];if(!f)return;
+  var rd=new FileReader();
+  rd.onload=function(){
+    try{
+      var o=JSON.parse(rd.result),n=0;
+      (o.done||[]).forEach(function(e){var k=String(e).toLowerCase();if(!done[k]){done[k]=1;n++;}});
+      store.set(KEY,Object.keys(done));
+      if(o.tpl){store.set(TKEY,o.tpl);
+        suEl.value=o.tpl.su||"";bdEl.value=o.tpl.bd||"";
+        if(o.tpl.mode)modeEl.value=o.tpl.mode;
+        if(o.tpl.batch)batchEl.value=o.tpl.batch;
+        if(o.tpl.lang)langEl.value=o.tpl.lang;}
+      paintAll();count();filter();
+      toast("استُردت النسخة — أُضيف "+n+" إيميل مُرسل");
+    }catch(e){toast("الملف مو صحيح");}
+    impFile.value="";};
+  rd.readAsText(f);};
+
+/* ---- اختصار لوحة المفاتيح ---- */
+document.addEventListener("keydown",function(ev){
+  var tag=(ev.target.tagName||"").toLowerCase();
+  if(tag==="input"||tag==="textarea"||tag==="select"){
+    if(ev.key==="Escape"&&ev.target===qEl){qEl.value="";filter();qEl.blur();}
+    return;}
+  if(ev.key==="/"){ev.preventDefault();qEl.focus();}
+  else if(ev.key==="Escape"&&selN0){clearSel();}});
+
+paintAll();count();selCount();filter();
 })();
 </script>
 </body>
