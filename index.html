@@ -136,6 +136,12 @@ body.hasSel .toast{bottom:92px}
   padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--muted);
   cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:5px}
 .dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block;flex:0 0 auto}
+.trust{flex:0 0 auto;align-self:center;display:flex;gap:2px;margin-inline-end:7px;cursor:help}
+.trust i{width:5px;height:12px;border-radius:2px;background:var(--line)}
+li.t3 .trust i{background:var(--ok)}
+li.t2 .trust i:nth-child(-n+2){background:var(--done)}
+li.t1 .trust i:nth-child(1){background:var(--muted)}
+li.t1 .mail{opacity:.75}
 .s-applied{color:var(--done)}.s-replied{color:var(--ok)}.s-interview{color:var(--accent)}.s-rejected{color:var(--bad)}
 li.st-applied .stat{color:var(--done);border-color:var(--done)}
 li.st-replied .stat{color:var(--ok);border-color:var(--ok)}
@@ -187,6 +193,7 @@ li.st-replied,li.st-interview{background:#F2FAF6}
     <button class="chip" id="fHR" aria-pressed="false">بريد توظيف فقط</button>
     <button class="chip" id="fPrio" aria-pressed="false">إعلانات حديثة</button>
     <button class="chip" id="fUrl" aria-pressed="false">فيها رابط تقديم</button>
+    <button class="chip" id="fTrust" aria-pressed="false">الأعلى موثوقية</button>
     <button class="chip" id="fDone" aria-pressed="false">إخفاء اللي قدّمت عليها</button>
     <button class="chip" id="fRep" aria-pressed="false">اللي ردّوا</button>
     <button class="chip" id="selMode" aria-pressed="false">تحديد الكل</button>
@@ -226,6 +233,7 @@ li.st-replied,li.st-interview{background:#F2FAF6}
       <div><button type="button" class="mini" id="impData" style="width:100%">استيراد ملف</button></div>
     </div>
     <input type="file" id="impFile" accept="application/json,.json" hidden>
+    <p class="hint">الأعمدة الثلاثة جنب كل جهة توضّح موثوقية الوصول: ثلاثة = رابط تقديم أو بريد توظيف مخصص، اثنان = بريد على نطاق الجهة، واحد = عنوان عام أو بريد مجاني.</p>
     <p class="hint cv">تذكير: الرسالة تُفتح جاهزة بس بدون مرفق — أرفق سيرتك الذاتية قبل ما ترسل.</p>
     <p class="hint">لو اخترت English أو "عربي + English"، عبّي الحقول بالإنجليزي — النص ينبني من نفس ما تكتبه.
     وكلمة <code>{الجهة}</code> داخل النص تنبدل تلقائياً باسم الشركة عند الإرسال الفردي.
@@ -1395,7 +1403,7 @@ var qEl=$("q"),suEl=$("su"),bdEl=$("bd"),modeEl=$("mode"),batchEl=$("batch"),
     toastEl=$("toast"),empty=$("empty"),fHR=$("fHR"),fPrio=$("fPrio"),fDone=$("fDone"),
     tplBtn=$("tpl"),tplPanel=$("tplPanel"),selModeBtn=$("selMode"),expandBtn=$("expand"),
     listEl=$("list"),topBtn=$("toTop"),pbar=$("pbar"),pbar2=$("pbar2"),statsEl=$("stats"),
-    fRep=$("fRep"),fUrl=$("fUrl"),pop=$("pop"),popTtl=$("popTtl"),
+    fRep=$("fRep"),fUrl=$("fUrl"),fTrust=$("fTrust"),pop=$("pop"),popTtl=$("popTtl"),
     expData=$("expData"),impData=$("impData"),impFile=$("impFile"),
     selbar=$("selbar"),selN=$("selN"),selAll=$("selAll"),selCopy=$("selCopy"),selClear=$("selClear"),selSend=$("selSend");
 var langEl=$("lang"),genBtn=$("gen");
@@ -1414,6 +1422,31 @@ function norm(t){
     .replace(/\u0624/g,"\u0648").replace(/\u0629/g,"\u0647")
     .replace(/\s+/g," ");
 }
+var FREE=["gmail.com","hotmail.com","yahoo.com","outlook.com","outlook.sa","live.com",
+  "windowslive.com","proton.me","icloud.com","mail.com","aol.com","msn.com"];
+var JOBW=["career","careers","job","jobs","hr","recruit","recruitment","talent","cv",
+  "tawzif","employ","hiring","wadaef","wadhefa","tawteef","coop","vacanc"];
+var GENERIC=["info","contact","contactus","support","admin","mail","cs","cc","hello",
+  "enquiry","enquiries","customercare","customerservice","wecare","reception","office"];
+
+/* 3 = الأعلى: رابط تقديم أو بريد توظيف على نطاق الشركة
+   2 = متوسط: بريد شخص أو قسم على نطاق الشركة
+   1 = الأدنى: بريد مجاني أو عنوان عام */
+function trustOf(r){
+  if(r.url)return 3;
+  var at=r.lk.indexOf("@"),lp=r.lk.slice(0,at),dm=r.lk.slice(at+1);
+  if(FREE.indexOf(dm)>=0)return 1;
+  var toks=lp.split(/[._\-0-9]+/);
+  for(var i=0;i<JOBW.length;i++){
+    if(toks.indexOf(JOBW[i])>=0||lp.indexOf(JOBW[i])===0)return 3;}
+  if(r.h)return 3;
+  if(GENERIC.indexOf(lp)>=0)return 1;
+  return 2;
+}
+var TRUSTTXT={3:"\u0645\u0648\u062b\u0648\u0642\u064a\u0629 \u0639\u0627\u0644\u064a\u0629 \u2014 \u0642\u0646\u0627\u0629 \u062a\u0648\u0638\u064a\u0641 \u0645\u062e\u0635\u0635\u0629",
+  2:"\u0645\u0648\u062b\u0648\u0642\u064a\u0629 \u0645\u062a\u0648\u0633\u0637\u0629 \u2014 \u0628\u0631\u064a\u062f \u0639\u0644\u0649 \u0646\u0637\u0627\u0642 \u0627\u0644\u062c\u0647\u0629",
+  1:"\u0645\u0648\u062b\u0648\u0642\u064a\u0629 \u0623\u0642\u0644 \u2014 \u0639\u0646\u0648\u0627\u0646 \u0639\u0627\u0645 \u0623\u0648 \u0628\u0631\u064a\u062f \u0645\u062c\u0627\u0646\u064a"};
+
 function closest(el,sel){
   while(el&&el!==document){if(el.matches?el.matches(sel):false)return el;el=el.parentNode;}
   return null;
@@ -1426,6 +1459,12 @@ var recs=items.map(function(li){
          k:norm(li.getAttribute("data-k")),h:li.getAttribute("data-h")==="1",
          p:li.getAttribute("data-p")==="1",url:li.getAttribute("data-u")||"",vis:true,cls:"",cont:false};
   var nmEl=li.querySelector(".name");r.nm=nmEl?nmEl.textContent.trim():"";
+  r.t=trustOf(r);
+  var tw=document.createElement("span");
+  tw.className="trust";tw.title=TRUSTTXT[r.t];
+  tw.setAttribute("aria-label",TRUSTTXT[r.t]);
+  tw.innerHTML="<i></i><i></i><i></i>";
+  li.insertBefore(tw,li.querySelector(".copy"));
   if(r.url){
     var a=document.createElement("a");
     a.className="apply";a.href=r.url;a.target="_blank";a.rel="noopener";
@@ -1448,6 +1487,7 @@ function cls(r){
   if(sel[r.e])c=c?c+" sel":"sel";
   if(r.url)c=c?c+" has-url":"has-url";
   if(r.cont)c=c?c+" cont":"cont";
+  c=c?c+" t"+r.t:"t"+r.t;
   if(c!==r.cls){r.li.className=c;r.cls=c;}
   var pill=r.li.querySelector(".stat");
   if(st){
@@ -1580,14 +1620,15 @@ secRecs.forEach(function(sr){
 var savedOpen=null;
 function filter(){
   var q=norm(qEl.value.replace(/^\s+|\s+$/g,""));
-  var hr=on(fHR),pr=on(fPrio),hd=on(fDone),rp=on(fRep),ul=on(fUrl),total=0;
+  var hr=on(fHR),pr=on(fPrio),hd=on(fDone),rp=on(fRep),ul=on(fUrl),tr=on(fTrust),total=0;
   if(q&&savedOpen===null)savedOpen=secRecs.map(function(sr){return sr.sec.open;});
   for(var i=0;i<secRecs.length;i++){
     var sr=secRecs[i],n=0,l=sr.list,last=null;
     for(var j=0;j<l.length;j++){
       var r=l[j],ok=true;
       var st=stOf(r.lk);
-      if(ul&&!r.url)ok=false;
+      if(tr&&r.t<3)ok=false;
+      else if(ul&&!r.url)ok=false;
       else if(hr&&!r.h)ok=false;
       else if(pr&&!r.p)ok=false;
       else if(hd&&st)ok=false;
@@ -1612,7 +1653,7 @@ function filter(){
 }
 var t;
 qEl.oninput=function(){clearTimeout(t);t=setTimeout(filter,150);};
-[fHR,fPrio,fDone,fRep,fUrl].forEach(function(b){b.onclick=function(){
+[fHR,fPrio,fDone,fRep,fUrl,fTrust].forEach(function(b){b.onclick=function(){
   press(b,!on(b));
   if(b===fDone&&on(fDone))press(fRep,false);
   if(b===fRep&&on(fRep))press(fDone,false);
